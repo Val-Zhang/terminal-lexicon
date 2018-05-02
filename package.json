@@ -1,0 +1,10 @@
+{
+  "name": "dict",
+  "version": "0.0.1",
+  "description": "dict in terminal by node",
+  "main": "index.js",
+  "repository": "https://github.com/zhangwang1990/dict.git",
+  "author": "zhangwang <zhangwang2014@iCloud.com>",
+  "license": "MIT",
+  "dependencies": {}
+}
