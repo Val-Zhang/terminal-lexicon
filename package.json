@@ -2,9 +2,18 @@
   "name": "dict",
   "version": "0.0.1",
   "description": "dict in terminal by node",
-  "main": "index.js",
+  "main": "./src/index.js",
   "repository": "https://github.com/zhangwang1990/dict.git",
   "author": "zhangwang <zhangwang2014@iCloud.com>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.15.1",
+    "inquirer": "^5.2.0"
+  },
+  "preferGlobal": true,
+  "bin": "./src/index.js"
 }
