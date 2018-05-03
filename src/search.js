@@ -1,4 +1,5 @@
 const axios = require("axios");
+const emoji = require("node-emoji");
 
 const { formatSoundmark, formatDefinition } = require("./fotmat");
 
@@ -9,8 +10,12 @@ const searchWord = word => {
     .get(`${SOURCE_SHANBEY_API}${word}`)
     .then(res => {
       const data = res.data.data;
-      formatSoundmark(data.pronunciations);
-      formatDefinition(data.definition);
+      if (data.definition) {
+        formatSoundmark(data.pronunciations);
+        formatDefinition(data.definition);
+      } else {
+        console.log(emoji.get("disappointed_relieved"), res.data.msg);
+      }
     })
     .catch(err => {
       console.log(err);

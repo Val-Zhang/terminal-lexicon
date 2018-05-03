@@ -7,7 +7,8 @@
   "author": "zhangwang <zhangwang2014@iCloud.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "node-emoji": "^1.8.1"
   },
   "devDependencies": {
     "chalk": "^2.4.1",

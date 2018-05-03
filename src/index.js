@@ -13,7 +13,7 @@ program
   .alias("s")
   .description("run the given remote command")
   .action(function(word) {
-    console.log('search for "%s"', word);
+    console.log('%s：', word);
     searchWord(word)
   });
 
