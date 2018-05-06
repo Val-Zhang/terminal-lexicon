@@ -1,5 +1,5 @@
 {
-  "name": "dict",
+  "name": "terminal-lexicon",
   "version": "0.0.1",
   "description": "dict in terminal by node",
   "main": "./src/index.js",
@@ -16,5 +16,7 @@
     "inquirer": "^5.2.0"
   },
   "preferGlobal": true,
-  "bin": "./src/index.js"
+  "bin": {
+    "dict": "./src/index.js"
+  }
 }
