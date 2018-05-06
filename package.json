@@ -1,20 +1,18 @@
 {
   "name": "terminal-lexicon",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "dict in terminal by node",
   "main": "./src/index.js",
   "repository": "https://github.com/zhangwang1990/dict.git",
-  "author": "zhangwang <zhangwang2014@iCloud.com>",
+  "author": "zhangwang1990 <zhangwang2014@iCloud.com>",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
-    "node-emoji": "^1.8.1"
-  },
-  "devDependencies": {
     "chalk": "^2.4.1",
     "commander": "^2.15.1",
-    "inquirer": "^5.2.0"
+    "node-emoji": "^1.8.1"
   },
+  "devDependencies": {},
   "preferGlobal": true,
   "bin": {
     "dict": "./src/index.js"

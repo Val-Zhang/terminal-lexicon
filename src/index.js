@@ -1,7 +1,6 @@
 #! /usr/bin/env node
 
 const program = require("commander");
-const inquirer = require("inquirer");
 
 const searchWord = require("./search").searchWord;
 const VERSION = require("../config").VERSION;
