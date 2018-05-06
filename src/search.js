@@ -1,14 +1,23 @@
 const axios = require("axios");
 const emoji = require("node-emoji");
+const {
+  log,
+  clearLog,
+  intervalLog,
+  clearIntervalLog
+} = require("./libs/onelineLog");
 
 const { formatSoundmark, formatDefinition } = require("./fotmat");
 
 const SOURCE_SHANBEY_API = require("../config").SOURCE_SHANBEY_API;
 
 const searchWord = word => {
+  console.log("%s：", word);
+  intervalLog();
   axios
     .get(`${SOURCE_SHANBEY_API}${word}`)
     .then(res => {
+      clearIntervalLog();
       const data = res.data.data;
       if (data.definition) {
         formatSoundmark(data.pronunciations);

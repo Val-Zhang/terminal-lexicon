@@ -3,19 +3,20 @@ const emoji = require("node-emoji");
 const { soundmarkInterpreting } = require("./libs/soundmark");
 
 const PADDING4 = "    ";
-const PADDING2 = '  '
+const PADDING2 = '  ';
+const PADDING1 = ' ';
 
 function formatSoundmark(markDict = {}) {
   let formatedSoundmark = "";
   for (let mark in markDict) {
     if (markDict[mark]) {
-      formatedSoundmark += `${chalk.blue(soundmarkInterpreting(mark))}  [${
+      formatedSoundmark += `${chalk.blue(soundmarkInterpreting(mark))}[${
         markDict[mark]
       }] ${PADDING4}`;
     }
   }
   if (formatedSoundmark) {
-    console.log(emoji.get("headphones"), "音标：");
+    console.log(emoji.get("sparkles"), "音标：");
     console.log(PADDING4, formatedSoundmark);
   }
 }

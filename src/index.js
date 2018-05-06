@@ -8,12 +8,8 @@ const VERSION = require("../config").VERSION;
 program.version(VERSION, "-v, --version");
 
 program
-  .command("search <word>")
-  .alias("s")
-  .description("run the given remote command")
+  .arguments("<word>")
   .action(function(word) {
-    console.log('%s：', word);
-    searchWord(word)
+    searchWord(word);
   });
-
 program.parse(process.argv);
