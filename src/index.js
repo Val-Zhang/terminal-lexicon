@@ -3,7 +3,7 @@
 const program = require("commander");
 
 const searchWord = require("./search").searchWord;
-const VERSION = require("../config").VERSION;
+const VERSION = require("../package").version;
 
 program.version(VERSION, "-v, --version");
 
