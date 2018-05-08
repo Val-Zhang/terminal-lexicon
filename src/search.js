@@ -1,11 +1,6 @@
 const axios = require("axios");
 const emoji = require("node-emoji");
-const {
-  log,
-  clearLog,
-  intervalLog,
-  clearIntervalLog
-} = require("./libs/onelineLog");
+const { intervalLog, clearIntervalLog } = require("./libs/onelineLog");
 
 const { formatSoundmark, formatDefinition } = require("./fotmat");
 

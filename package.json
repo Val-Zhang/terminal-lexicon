@@ -12,7 +12,21 @@
     "commander": "^2.15.1",
     "node-emoji": "^1.8.1"
   },
-  "devDependencies": {},
+  "scripts": {
+    "precommit": "lint-staged",
+    "lint": "eslint src/*",
+    "lint:fix": "prettier src/* --write"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": ["prettier --write", "git add"]
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.0",
+    "prettier": "1.12.1"
+  },
   "preferGlobal": true,
   "bin": {
     "dict": "./src/index.js"

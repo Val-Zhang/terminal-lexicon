@@ -3,8 +3,8 @@ const emoji = require("node-emoji");
 const { soundmarkInterpreting } = require("./libs/soundmark");
 
 const PADDING4 = "    ";
-const PADDING2 = '  ';
-const PADDING1 = ' ';
+// const PADDING2 = "  ";
+// const PADDING1 = " ";
 
 function formatSoundmark(markDict = {}) {
   let formatedSoundmark = "";

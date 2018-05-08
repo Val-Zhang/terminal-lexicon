@@ -7,9 +7,7 @@ const VERSION = require("../config").VERSION;
 
 program.version(VERSION, "-v, --version");
 
-program
-  .arguments("<word>")
-  .action(function(word) {
-    searchWord(word);
-  });
+program.arguments("<word>").action(function(word) {
+  searchWord(word);
+});
 program.parse(process.argv);
