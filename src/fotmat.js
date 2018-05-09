@@ -29,5 +29,15 @@ function formatDefinition(definition = "") {
   });
 }
 
+function formatExampleSentence(sentence) {
+  console.log(PADDING4, sentence);
+}
+
+function formatExampleTranslation(translation) {
+  console.log(PADDING4, ">", chalk.dim(translation));
+}
+
 module.exports.formatSoundmark = formatSoundmark;
 module.exports.formatDefinition = formatDefinition;
+module.exports.formatExampleSentence = formatExampleSentence;
+module.exports.formatExampleTranslation = formatExampleTranslation;
