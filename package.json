@@ -1,6 +1,6 @@
 {
   "name": "terminal-lexicon",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "dict in terminal by node",
   "main": "./src/index.js",
   "repository": "https://github.com/zhangwang1990/dict.git",
