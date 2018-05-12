@@ -7,14 +7,28 @@ const {
   formatSoundmark,
   formatDefinition,
   formatExampleSentence,
-  formatExampleTranslation
+  formatExampleTranslation,
+  formatChineseDefinition
 } = require("./fotmat");
 
-const { SOURCE_SHANBEY_API, getExampleUrlById } = require("../config");
+const {
+  SOURCE_SHANBEY_API,
+  getExampleUrlById,
+  SOURCE_BD_API
+} = require("../config");
 
 const searchWord = word => {
   console.log(chalk.bold(`${word}:`));
+  const isEnglish = word.toString().match(/[\u3400-\u9FBF]/);
+  if (isEnglish) {
+    searchWordByBdApi(word);
+  } else {
+    searchWordByShanbayAPi(word);
+  }
   intervalLog();
+};
+
+const searchWordByShanbayAPi = word => {
   axios
     .get(`${SOURCE_SHANBEY_API}${word}`)
     .then(res => {
@@ -44,8 +58,27 @@ const searchWord = word => {
       });
     })
     .catch(err => {
+      clearIntervalLog();
+      console.log(err);
+    });
+};
+
+const searchWordByBdApi = word => {
+  axios
+    .get(encodeURI(`${SOURCE_BD_API}${word}`))
+    .then(res => {
+      clearIntervalLog();
+      const {
+        trans_result: [{ dst }]
+      } = res.data;
+      formatChineseDefinition(dst);
+    })
+    .catch(err => {
+      clearIntervalLog();
       console.log(err);
     });
 };
 
 module.exports.searchWord = searchWord;
+module.exports.searchWordByShanbayAPi = searchWordByShanbayAPi;
+module.exports.searchWordByBdApi = searchWordByBdApi;

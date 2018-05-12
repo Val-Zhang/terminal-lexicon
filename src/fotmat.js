@@ -37,7 +37,13 @@ function formatExampleTranslation(translation) {
   console.log(PADDING4, ">", chalk.dim(translation));
 }
 
+function formatChineseDefinition(definition = "") {
+  console.log(emoji.get("rainbow"), "释义：");
+  console.log(PADDING4, definition.trim());
+}
+
 module.exports.formatSoundmark = formatSoundmark;
 module.exports.formatDefinition = formatDefinition;
 module.exports.formatExampleSentence = formatExampleSentence;
+module.exports.formatChineseDefinition = formatChineseDefinition;
 module.exports.formatExampleTranslation = formatExampleTranslation;
