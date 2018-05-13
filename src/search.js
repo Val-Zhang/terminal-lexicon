@@ -2,13 +2,15 @@ const axios = require("axios");
 const emoji = require("node-emoji");
 const chalk = require("chalk");
 const { intervalLog, clearIntervalLog } = require("./libs/onelineLog");
+const getRevelantWords = require("./crawlers/getRevelantWords");
 
 const {
   formatSoundmark,
   formatDefinition,
   formatExampleSentence,
   formatExampleTranslation,
-  formatChineseDefinition
+  formatChineseDefinition,
+  showRelevantNumWords
 } = require("./fotmat");
 
 const {
@@ -17,19 +19,33 @@ const {
   SOURCE_BD_API
 } = require("../config");
 
-const searchWord = word => {
+const searchWord = (word, relevantNum = 0) => {
   console.log(chalk.bold(`${word}:`));
-  const isEnglish = word.toString().match(/[\u3400-\u9FBF]/);
-  if (isEnglish) {
+  intervalLog();
+  const isContainChinese = word.toString().match(/[\u3400-\u9FBF]/);
+  if (isContainChinese) {
     searchWordByBdApi(word);
   } else {
-    searchWordByShanbayAPi(word);
+    searchWordByShanbayAPi(word)
+      .then(() => {
+        if (relevantNum) {
+          return getRevelantWords(word).then(revelantWords => {
+            const { antonyms, synonyms } = revelantWords;
+            console.log(emoji.get("earth_americas"), "近义词：");
+            showRelevantNumWords(synonyms, relevantNum);
+            console.log(emoji.get("earth_americas"), "反义词：");
+            showRelevantNumWords(antonyms, relevantNum);
+          });
+        }
+      })
+      .catch(() => {
+        console.log("未找到相关单词");
+      });
   }
-  intervalLog();
 };
 
 const searchWordByShanbayAPi = word => {
-  axios
+  return axios
     .get(`${SOURCE_SHANBEY_API}${word}`)
     .then(res => {
       clearIntervalLog();

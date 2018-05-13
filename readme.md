@@ -45,13 +45,55 @@ a hard nut to crack：
      棘手的问题,难对付的人
 ```
 
+```bash
+# 中译英
+➜ dict 前端工程师
+前端工程师:
+🌈 释义：
+     Front-end Engineer
+
+~
+➜ dict Python工程师
+Python工程师:
+🌈 释义：
+     Python Engineer
+```
+
+```bash
+# 支持获取词汇的相关词汇（本功能的初衷在于辅助程序命名）
+# 想要获取相关词汇，只需在所查单词之后添加 -r [n] 即可，n 代表相关单词个数，默认为3
+➜ dict -r obtain
+obtain:
+✨ 音标：
+     英[əb'teɪn]     美[əb'teɪn]
+🌈 释义：
+     vt. 获得, 得到
+     vi. 通用, 流行, 存在
+🍭 例句：
+     The leech hangs about other people hoping to obtain money.
+     > 那个吸血鬼依附于他人希望获得钱财。
+     I haven't been able to obtain that book anywhere.
+     > 我到处都没买到那本书。
+     These conditions no longer obtain.
+     > 这些条件已不复存在了。
+🌎 近义词：
+     01. access         相似度：100
+     02. achieve        相似度：100
+     03. attain         相似度：100
+🌎 反义词：
+     01. disperse       相似度：-100
+     02. distribute     相似度：-100
+     03. divide         相似度：-100
+```
+
 ## 开发计划
 
 * [x] 基于扇贝 api 的简单释义
 * [x] 添加对词组的支持
 * [x] 添加例句
 * [x] 添加中译英
-* [ ] 查找同义词
+* [x] 添加相关词汇搜索，同义词和反义词
+* [ ] 分开展示同义词和反义词
 * [ ] 添加英文释义
 * [ ] 添加单词的计算机专业释义
 * [ ] 离线词库
