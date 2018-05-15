@@ -1,6 +1,7 @@
 const chalk = require("chalk");
 const emoji = require("node-emoji");
 const { soundmarkInterpreting } = require("./libs/soundmark");
+const en2zh = require("./libs/en2zh");
 
 const PADDING4 = "    ";
 // const PADDING2 = "  ";
@@ -50,7 +51,8 @@ function formatIndex(index) {
   return (index + 1).toString().padStart(2, 0);
 }
 
-function showRelevantNumWords(relevants, num = 5) {
+function showRelevantNumWords(relevants, num = 5, type) {
+  console.log(emoji.get("earth_americas"), en2zh(type));
   for (let i = 0; i < num; i++) {
     const term = relevants[i].term.padEnd(15, " ");
     formatRelevantWord(

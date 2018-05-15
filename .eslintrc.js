@@ -9,7 +9,7 @@ module.exports = {
   plugins: ["prettier"],
   rules: {
     "prettier/prettier": "error",
-    indent: ["error", 2],
+    indent: [2, 2, { SwitchCase: 1 }],
     "linebreak-style": ["error", "unix"],
     semi: ["error", "always"],
     "no-console": "off"

@@ -2,7 +2,10 @@ const axios = require("axios");
 const emoji = require("node-emoji");
 const chalk = require("chalk");
 const { intervalLog, clearIntervalLog } = require("./libs/onelineLog");
-const getRevelantWords = require("./crawlers/getRevelantWords");
+const {
+  getRevelantWords,
+  getRevelantWordsByType
+} = require("./crawlers/getRevelantWords");
 
 const {
   formatSoundmark,
@@ -31,10 +34,8 @@ const searchWord = (word, relevantNum = 0) => {
         if (relevantNum) {
           return getRevelantWords(word).then(revelantWords => {
             const { antonyms, synonyms } = revelantWords;
-            console.log(emoji.get("earth_americas"), "近义词：");
-            showRelevantNumWords(synonyms, relevantNum);
-            console.log(emoji.get("earth_americas"), "反义词：");
-            showRelevantNumWords(antonyms, relevantNum);
+            showRelevantNumWords(synonyms, relevantNum, "synonyms");
+            showRelevantNumWords(antonyms, relevantNum, "antonyms");
           });
         }
       })
@@ -95,6 +96,13 @@ const searchWordByBdApi = word => {
     });
 };
 
+const showRevelantWordsByType = (word, wordsNum, type) => {
+  return getRevelantWordsByType(word, type).then(revelantWordsList => {
+    showRelevantNumWords(revelantWordsList, wordsNum, type);
+  });
+};
+
 module.exports.searchWord = searchWord;
 module.exports.searchWordByShanbayAPi = searchWordByShanbayAPi;
 module.exports.searchWordByBdApi = searchWordByBdApi;
+module.exports.showRevelantWordsByType = showRevelantWordsByType;

@@ -22,6 +22,11 @@ function getRevelantWords(word) {
   });
 }
 
-getRevelantWords("get");
+function getRevelantWordsByType(word, type) {
+  return getRevelantWords(word).then(returnData => {
+    return returnData[type];
+  });
+}
 
-module.exports = getRevelantWords;
+module.exports.getRevelantWords = getRevelantWords;
+module.exports.getRevelantWordsByType = getRevelantWordsByType;
