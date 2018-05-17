@@ -1,5 +1,7 @@
 # terminal-lexicon
 
+![npm](https://img.shields.io/npm/dt/terminal-lexicon.svg) ![npm](https://img.shields.io/npm/v/terminal-lexicon.svg)
+
 > 几乎每天都需要看英文文档，经常需要查单词，每次打开词典，输入后查词，感觉效率太低，而终端其实算是桌面上始终打开着的程序，由此有了此在终端中查单词的程序。有时候也会需要在 Linux 上工作，Linux 上使用此程序感觉也挺好的 😉
 
 ## 安装
