@@ -2,7 +2,11 @@
 
 const program = require("commander");
 
-const { searchWord, showRevelantWordsByType } = require("./search");
+const {
+  searchWord,
+  showRevelantWordsByType,
+  showEnglishDefinition
+} = require("./search");
 const VERSION = require("../package").version;
 
 program.version(VERSION, "-v, --version");
@@ -26,6 +30,7 @@ program
     parseInt,
     0
   )
+  .option("-d,--definition", "获取某个单词的英文释义")
   .arguments("<word> [otherWords...]")
   .action(function(word, otherWords, options) {
     let willSearchWord = otherWords.reduce(
@@ -42,5 +47,9 @@ program
       searchWord(willSearchWord, options.relevant);
     }
   });
+
+program.command("en <word>").action(function(word) {
+  showEnglishDefinition(word);
+});
 
 program.parse(process.argv);

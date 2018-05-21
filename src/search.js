@@ -7,13 +7,16 @@ const {
   getRevelantWordsByType
 } = require("./crawlers/getRevelantWords");
 
+const { getEnglishDefinition } = require("./crawlers/getEnglishDefinition");
+
 const {
   formatSoundmark,
   formatDefinition,
   formatExampleSentence,
   formatExampleTranslation,
   formatChineseDefinition,
-  showRelevantNumWords
+  showRelevantNumWords,
+  formatMeanAddExample
 } = require("./fotmat");
 
 const {
@@ -102,7 +105,17 @@ const showRevelantWordsByType = (word, wordsNum, type) => {
   });
 };
 
+const showEnglishDefinition = word => {
+  console.log(word);
+  return getEnglishDefinition(word).then(defList => {
+    defList.forEach((def, index) => {
+      formatMeanAddExample(def, index);
+    });
+  });
+};
+
 module.exports.searchWord = searchWord;
 module.exports.searchWordByShanbayAPi = searchWordByShanbayAPi;
 module.exports.searchWordByBdApi = searchWordByBdApi;
 module.exports.showRevelantWordsByType = showRevelantWordsByType;
+module.exports.showEnglishDefinition = showEnglishDefinition;

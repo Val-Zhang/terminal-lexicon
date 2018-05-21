@@ -61,9 +61,16 @@ function showRelevantNumWords(relevants, num = 5, type) {
   }
 }
 
+function formatMeanAddExample(item, index) {
+  console.log(`${formatIndex(index)}   ${item.mean}`);
+  console.log(PADDING4, item.example);
+  console.log("\n");
+}
+
 module.exports.formatSoundmark = formatSoundmark;
 module.exports.formatDefinition = formatDefinition;
 module.exports.formatExampleSentence = formatExampleSentence;
 module.exports.formatChineseDefinition = formatChineseDefinition;
 module.exports.formatExampleTranslation = formatExampleTranslation;
 module.exports.showRelevantNumWords = showRelevantNumWords;
+module.exports.formatMeanAddExample = formatMeanAddExample;
