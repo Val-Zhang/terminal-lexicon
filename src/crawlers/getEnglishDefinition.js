@@ -6,7 +6,7 @@ const { BASE_URL_DIRECTIONARY } = require("../../config");
 /**
  * 并没解析出完全的数据，此爬虫值得更深入的改进
  */
-
+// test
 function getEnglishDefinition(word) {
   return axios
     .get(`${BASE_URL_DIRECTIONARY}${word}`)
